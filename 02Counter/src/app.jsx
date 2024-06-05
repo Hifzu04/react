@@ -1,33 +1,36 @@
-import { useState } from 'preact/hooks'
+import { useState } from 'react'             //use to imporrt hooks    
 import preactLogo from './assets/preact.svg'
 import viteLogo from '/vite.svg'
 import './app.css'
 
 export function App() {
-  const [count, setCount] = useState(0)
+  let [count, setCount] = useState(0)
+
+  const addValue = () => {
+    count = count + 1;
+    setCount(count);                             //update the value in UI
+    console.log("value added", count);          //modifiy the value in behind (backend)
+
+  }
+  const removeValue = () => {
+    setCount(count - 1)
+  }
+
+  // let counter = 15;
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
+      <h1>chai aur react</h1>
+      <h2>counter Value : {count}</h2>
+
+      <button onClick={addValue}>add Value to  {count}</button>
+     
+      <br />
+
+
+      <button onClick={removeValue}>remove value from {count} </button>
+
     </>
   )
 }
