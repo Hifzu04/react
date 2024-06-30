@@ -21,18 +21,19 @@ function InputBox({
                 </label>
                 <input
                     id={amountInputId}
-                    className="outline-none w-full bg-transparent py-1.5"
+                    className="outline-none w-full py-1.5"
                     type="number"
                     placeholder="Amount"
                     disabled={amountDisable}
                     value={amount}
+                    //important line to understand
                     onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
-                <p className="text-black/40 mb-2 w-full">Currency Type</p>
+                <p className="text-black/60 mb-2 w-full">Currency Type</p>
                 <select
-                    className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
+                    className="block py-1 px-0 w-1/2 text-sm text-center rounded-sm bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer-lg px-1 py-1 bg-gray-200 cursor-pointer outline-none"
                     value={selectCurrency}
                     onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                     disabled={currencyDisable}

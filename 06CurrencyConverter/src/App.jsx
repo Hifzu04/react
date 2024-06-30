@@ -3,10 +3,10 @@ import {InputBox} from './components/Index'
 import useCurrencyInfo from './hooks/CustomHooks'
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
-  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState();
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
   const swap = () => {
@@ -52,7 +52,7 @@ function App() {
                     <div className="relative w-full h-0.5">
                         <button
                             type="button"
-                            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
+                            className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5 "
                             onClick={swap}
                         >
                             swap
@@ -68,7 +68,7 @@ function App() {
                             amountDisable
                         />
                     </div>
-                    <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                    <button type="submit" className="w-full  bg-blue-600 text-white px-4 py-3 rounded-lg  hover:bg-sky-700">
                         Convert {from.toUpperCase()} to {to.toUpperCase()}
                     </button>
                 </form>
