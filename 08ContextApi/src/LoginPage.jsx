@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import UserContext from './UserContext'
 
 function loginPage() {
   const [username,setUsername] = useState("")
   const [password, setPassword] = useState("")
+
+  const {setUser} = useContext(UserContext)
+
   const handleSubmit = (e) => {
     //prevent the page form refreshing
+    e.preventDefault()
+    setUser({username, password});
+
   }
   return (
     <div>
@@ -24,6 +31,7 @@ function loginPage() {
         <button
           type='submit'
           onClick={handleSubmit}
+          
         >login</button>
       </div>
 
