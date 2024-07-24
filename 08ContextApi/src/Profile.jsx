@@ -8,7 +8,6 @@ function Profile() {
     <div>Profile : {user.username}
     <div>password u entered : {user.password}</div>
     </div>
-
   )
 }
 
