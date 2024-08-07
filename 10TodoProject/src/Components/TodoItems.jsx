@@ -4,32 +4,56 @@ import { useTodo } from '../Context/TodoContext';
 
 
 function TodoItems(todo) {
-  const [istodoEditible, setistodoEditible] = useState(false);
+  const [istodoEditable, setIstodoEditable] = useState(false);
   const [todoMessage, settodoMessage] = useState(todo.todo)
   const { updateTodo, deleteTodo, toggleTodo } = useTodo()
 
   const editTodo = () => {
-     updateTodo(todo.id ,{...todo , todo : todoMessage})
-     setistodoEditible(false)
+    updateTodo(todo.id, { ...todo, todo: todoMessage })
+    setIstodoEditable(false)
   }
 
-  
+  const toggleCompleted = () => {
+    toggleTodo(todo.id)
+
+  }
+
+
 
   return (
-    <div className={`flex border border-black/10 rounded-lg shadow-sm shadow-white/50 text-black `}>
+    <div className={`flex border border-black/10 rounded-lg shadow-sm shadow-white/50 text-black 
+    ${todo.toggleCompleted ? "bg[#c6e9a7]" : "bg[#ccbed7]" }`}>
       <input
         type='checkbox'
         className='cursor-pointer'
+        checked= {todo.completed}
+        onChange={toggleCompleted}
+
 
       />
       <input
-        className='w-full bg-transparent rounded-lg'
+        className={`w-full bg-transparent rounded-lg ${istodoEditable ? "border-black/10 px-2" : "border-transparent"} 
+        ${todo.completed ? "line-through" : ""}`}
+        value={todoMessage}
+        onChange={(e) => settodoMessage(e.target.value)}
+        readOnly={!istodoEditable}
         type='text '
+
       />
       {/*edit , save button */}
       <button
-        className='bg-red-500'>
-        edit or save
+        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100
+        shrink-0 disabled:opacity-50"
+        onClick={() => {
+          if (todo.completed) return;
+          if (istodoEditable) {
+            editTodo();
+          }
+          else{
+                setIstodoEditable((prev) => !prev);
+          }
+        }}>
+        {istodoEditable 8djiofafhaoe}
       </button>
 
       {/* delete button */}
