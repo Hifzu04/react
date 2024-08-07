@@ -22,11 +22,11 @@ function TodoItems(todo) {
 
   return (
     <div className={`flex border border-black/10 rounded-lg shadow-sm shadow-white/50 text-black 
-    ${todo.toggleCompleted ? "bg[#c6e9a7]" : "bg[#ccbed7]" }`}>
+    ${todo.toggleCompleted ? "bg[#c6e9a7]" : "bg[#ccbed7]"}`}>
       <input
         type='checkbox'
         className='cursor-pointer'
-        checked= {todo.completed}
+        checked={todo.completed}
         onChange={toggleCompleted}
 
 
@@ -42,22 +42,27 @@ function TodoItems(todo) {
       />
       {/*edit , save button */}
       <button
-        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100
+        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center
+         bg-gray-50 hover:bg-gray-100
         shrink-0 disabled:opacity-50"
         onClick={() => {
           if (todo.completed) return;
           if (istodoEditable) {
             editTodo();
           }
-          else{
-                setIstodoEditable((prev) => !prev);
+          else {
+            setIstodoEditable((prev) => !prev);
           }
         }}>
-        {istodoEditable 8djiofafhaoe}
+        {istodoEditable ? "📁" : "✏️"}
       </button>
 
       {/* delete button */}
-      <button className='bg-red-200'>delete</button>
+      <button className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center
+       bg-gray-50 hover:bg-gray-100 shrink-0"
+        onClick={() => deleteTodo(todo.id)}
+      >
+        ❌ </button>
     </div>
   )
 }
