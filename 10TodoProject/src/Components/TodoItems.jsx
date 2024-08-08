@@ -3,7 +3,7 @@ import { useTodo } from '../Context/TodoContext';
 
 
 
-function TodoItems(todo) {
+function TodoItems({todo}) {
   const [istodoEditable, setIstodoEditable] = useState(false);
   const [todoMessage, settodoMessage] = useState(todo.todo)
   const { updateTodo, deleteTodo, toggleTodo } = useTodo()
@@ -22,7 +22,7 @@ function TodoItems(todo) {
 
   return (
     <div className={`flex border border-black/10 rounded-lg shadow-sm shadow-white/50 text-black 
-    ${todo.toggleCompleted ? "bg[#c6e9a7]" : "bg[#ccbed7]"}`}>
+    ${todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"}`}>
       <input
         type='checkbox'
         className='cursor-pointer'
