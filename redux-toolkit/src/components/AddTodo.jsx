@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {addTodo} from '../features/todo/todoSlice' 
+import {addtodo} from '../features/todo/TodoSlice' 
 
 function AddTodo() {
 
@@ -9,8 +9,8 @@ function AddTodo() {
 
     const addTodoHandler = (e) => {
         e.preventDefault()
-        //dispatch reducer ko use karte hue , store me value change karta hai.
-        dispatch(addTodo(input))
+        //dispatch reducer ko use karte hue , store me value change 
+        dispatch(addtodo(input))
         setInput('')
     }
 
