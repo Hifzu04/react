@@ -1,18 +1,19 @@
-import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {addtodo} from '../features/todo/TodoSlice' 
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addtodo } from '../features/todo/TodoSlice'
 
 function AddTodo() {
 
-    const [input, setInput] = useState('')
-    const dispatch = useDispatch()
+  const [input, setInput] = useState('')
+  const dispatch = useDispatch()
 
-    const addTodoHandler = (e) => {
-        e.preventDefault()
-        //dispatch reducer ko use karte hue , store me value change 
-        dispatch(addtodo(input))
-        setInput('')
-    }
+  const addTodoHandler = (e) => {
+    e.preventDefault()
+    //dispatch reducer ko use karte hue , store me value change 
+    //The dispatch function is used to send this action to the Redux store.
+    dispatch(addtodo(input))
+    setInput('')
+  }
 
   return (
     <form onSubmit={addTodoHandler} className="space-x-3 mt-12">

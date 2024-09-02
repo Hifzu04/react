@@ -5,7 +5,7 @@
 - **Purpose**: To extract data from the Redux store state.
 - **Usage**: 
   ```javascript
-  const myData = useSelector((state) => state.myData);
+  const myData = useSelector((state) => state.todos);
   ```
 - **Description**: Subscribes to the Redux store and re-renders the component when the selected state changes.
 
