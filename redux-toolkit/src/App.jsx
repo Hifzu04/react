@@ -9,9 +9,11 @@ function App() {
 
   return (
     <>
+    <div className='bg-gray-600 min-h-screen'>
     <h1 className=' text-green-800 bg-slate-300'>learn about redux toolkit</h1>
     <AddTodo/>
     <Todos/>
+    </div>
    </>
   )
 }
