@@ -8,7 +8,7 @@ import { useState } from "react"
  
 
 function App() {
-  const [color, setcolor] = useState("#674645");
+  const [color, setcolor] = useState("#674645");    //read and write
 
   return (
     <>
