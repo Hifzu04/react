@@ -7,7 +7,7 @@ import {  TodoProvider } from './Context/TodoContext'
 function App() {
   const [Todos , setTodos] = useState([]);
   const addTodo = (todo) => {
-    setTodos((prev) => [{id: Date.now() , ...todo} , ...prev])
+    setTodos((prev) => [{id: Math.floor(Math.random() * 10) , ...todo} , ...prev])
   }
 
   const updateTodo = (id , todo) => {
